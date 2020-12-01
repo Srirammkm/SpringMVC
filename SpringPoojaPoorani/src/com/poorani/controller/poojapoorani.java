@@ -39,7 +39,7 @@ public class poojapoorani {
 			 pw.close();
 
 		}*/
-	 
+	
 	@Autowired    
     EmployeeDAO dao;
 		@RequestMapping(value="/welcome",method = RequestMethod.GET)
@@ -53,16 +53,47 @@ public class poojapoorani {
 	      model.addAttribute("name", student.getName());
 	      model.addAttribute("pass", student.getPass());
 	      dao.save(student);   //saves the data
-	      List<Student> list=dao.getStudents();    //Displays the data
-	      model.addAttribute("list",list);  
-	      return "registration-done";
-	      
+	    //  List<Student> list=dao.getStudents();    //Displays the data
+	    //  model.addAttribute("list",list);  
+	      return "redirect:/registration-done";
 	   }
+	   @RequestMapping("/empform")    
+	    public String showform(Model m){    
+	        m.addAttribute("command", new Student());  
+	        return "empform";   
+	    } 
+	   @RequestMapping(value="/save",method = RequestMethod.POST)    
+	    public String save(@ModelAttribute("student") Student student){    
+	        dao.save(student);    
+	        return "redirect:/registration-done";//will redirect to viewemp request mapping    
+	    }    
+	   @RequestMapping("/registration-done")    
+	    public String viewemp(Model model){    
+		   List<Student> list=dao.getStudents();    //Displays the data
+		     model.addAttribute("list",list);  
+	        return "registration-done";    
+	    }    
+	      
+	   @RequestMapping(value="/editemp/{name}")    
+	    public String edit(@PathVariable String name, Model m){    
+	        Student studen=dao.getEmpByName(name);    
+	        m.addAttribute("command",studen);  
+	        return "empeditform";    
+	    }    
+	   
+	    /* It updates model object. */    
+	    @RequestMapping(value="/editsave",method = RequestMethod.POST)    
+	    public String editsave(@ModelAttribute("studen") Student studen){    
+	        dao.update(studen);    
+	        return "redirect:/registration-done";    
+	    }    
+	    
 	   @RequestMapping(value="/deleteemp/{name}",method = RequestMethod.GET)    
 	      public String delete(@PathVariable String name){    
 	          dao.delete(name);    
 	          return "redirect:/registration-done";    
 	      }    
+	   
 	   
 	      
 	   /*	************Just clicking a link which redirects to another page(welcome)**************
