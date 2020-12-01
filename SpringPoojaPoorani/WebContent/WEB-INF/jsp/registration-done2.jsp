@@ -3,15 +3,17 @@
   
 <h1>Employees List</h1>  
 <table border="2" width="70%" cellpadding="2">  
-<tr><th>Name</th><th>Password</th><th>Edit</th><th>Delete</th></tr>  
+<tr><th>Employee Id</th><th>First Name</th><th>Last Name</th><th>Edit</th><th>Delete</th></tr>  
    <c:forEach var="ss" items="${list}">   
    <tr>  
-   <td>${ss.name}</td>  
-   <td>${ss.pass}</td>  
-   <td><a href="editemp/${ss.name}">Edit</a></td>  
-   <td><a href="deleteemp/${ss.name}">Delete</a></td>  
+   <td>${ss.idd}</td>  
+   <td>${ss.ffname}</td>  
+   <td>${ss.llname}</td>  
+   <td><a href="editemp/${ss.idd}">Edit</a></td>  
+   <td><a href="deleteemp/${ss.idd}">Delete</a></td>  
+  
    </tr>  
    </c:forEach>  
    </table>  
    <br/>  
-   <a href="empform">Add New Employee</a>  
+  

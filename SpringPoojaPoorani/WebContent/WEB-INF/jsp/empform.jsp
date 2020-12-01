@@ -5,12 +5,16 @@
        <form:form method="post" action="save">    
         <table >    
          <tr>    
-          <td>Name : </td>   
-          <td><form:input path="name"  /></td>  
+          <td>Id : </td>   
+          <td><form:input path="idd"  /></td>  
          </tr>    
          <tr>    
-          <td>Password :</td>    
-          <td><form:input path="pass" /></td>  
+          <td>First Name :</td>    
+          <td><form:input path="ffname" /></td>  
+         </tr>    
+         <tr>    
+          <td>Last Name :</td>    
+          <td><form:input path="llname" /></td>  
          </tr>   
          <tr>    
           <td> </td>    
