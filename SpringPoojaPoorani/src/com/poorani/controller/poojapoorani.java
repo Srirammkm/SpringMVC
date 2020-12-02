@@ -33,21 +33,23 @@ public class poojapoorani {
 	        else
 	                 pw.println("<h1>Login Failed...!</h1>");
 			 pw.close();
+			 =====================================================
+			 @RequestMapping(value="/welcome",method = RequestMethod.GET)
+	   public ModelAndView student() {
+	      return new ModelAndView("student", "command", new Student());
+	   }
 
 		}*/
 	
 	@Autowired    
     EmployeeDAO dao;    
-		@RequestMapping(value="/welcome",method = RequestMethod.GET)
-	   public ModelAndView student() {
-	      return new ModelAndView("student", "command", new Student());
-	   }
+		
 	 @RequestMapping(value="/welcome",method = RequestMethod.POST)
 	      public String addStudent(@ModelAttribute("SpringPoojaPoorani")Student student, 
 	   
 	   ModelMap model) {
-	     model.addAttribute("name", student.getName());
-	     model.addAttribute("pass", student.getPass());
+	    // model.addAttribute("name", student.getName());
+	    // model.addAttribute("pass", student.getPass());
 	      //dao.save(student);   //saves the data
 	    //  List<Student> list=dao.getStudents();    //Displays the data
 	    //  model.addAttribute("list",list);  
