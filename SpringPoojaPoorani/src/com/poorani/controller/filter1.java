@@ -26,13 +26,25 @@ public class filter1 implements Filter {
 			{
 				{if(passs==1234)	
 					
-					((HttpServletResponse) response).sendRedirect("welcome");
+					((HttpServletResponse) response).sendRedirect("front_page.html");
 					
 					//chain.doFilter(request, response);
 					else
 						pw.println("<h1>It is not a user login</h1>");
 				}
 						}
+		else if(user.equals("admin"))
+		{
+			{if(passs==1234)	
+				
+				((HttpServletResponse) response).sendRedirect("admin.html");
+				
+				//chain.doFilter(request, response);
+				else
+					pw.println("<h1>It is not a admin login</h1>");
+			}
+					}
+					//((HttpServletResponse) response).sendRedirect("employee.html");
 		else
 			pw.println("<h1 style=\"margin-top: 240px;text-align: center;color:red;font-size:60px;\">User Unauthorized...</h1>");
 			

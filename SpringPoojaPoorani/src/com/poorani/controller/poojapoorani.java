@@ -35,7 +35,7 @@ public class poojapoorani {
 			 pw.close();
 			 =====================================================
 			 @RequestMapping(value="/welcome",method = RequestMethod.GET)
-	   public ModelAndView student() {
+	   		public ModelAndView student() {
 	      return new ModelAndView("student", "command", new Student());
 	   }
 
